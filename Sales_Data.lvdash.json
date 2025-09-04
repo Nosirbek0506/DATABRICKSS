@@ -1,0 +1,219 @@
+{
+  "datasets": [
+    {
+      "name": "412520c3",
+      "displayName": "fact_sales_2025",
+      "queryLines": [
+        "SELECT * FROM nosirbek.bronze.fact_sales_2025"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "db418dde",
+      "displayName": "sales_by_product",
+      "layout": [
+        {
+          "widget": {
+            "name": "3a73791b",
+            "multilineTextboxSpec": {
+              "lines": [
+                "SALES BY PRODUCT OWERVIEW"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "9e6b4de2",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "412520c3",
+                  "fields": [
+                    {
+                      "name": "product_id",
+                      "expression": "`product_id`"
+                    },
+                    {
+                      "name": "sum(quantity)",
+                      "expression": "SUM(`quantity`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "product_id",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "product_id"
+                },
+                "y": {
+                  "fieldName": "sum(quantity)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Sum of quantity"
+                }
+              },
+              "frame": {
+                "title": "Sales by Product ",
+                "showTitle": true,
+                "showDescription": false
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 1,
+            "width": 6,
+            "height": 5
+          }
+        },
+        {
+          "widget": {
+            "name": "6aa40dd8",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "412520c3",
+                  "fields": [
+                    {
+                      "name": "sum(quantity)",
+                      "expression": "SUM(`quantity`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(quantity)",
+                  "displayName": "Sum of quantity"
+                }
+              },
+              "frame": {
+                "title": "Total Sales Amount",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 6,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "de20afc7",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "412520c3",
+                  "fields": [
+                    {
+                      "name": "avg(quantity)",
+                      "expression": "AVG(`quantity`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "avg(quantity)",
+                  "displayName": "Average quantity"
+                }
+              },
+              "frame": {
+                "title": "Total Sales ",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 6,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "d53b7214",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "412520c3",
+                  "fields": [
+                    {
+                      "name": "max(quantity)",
+                      "expression": "MAX(`quantity`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "max(quantity)",
+                  "displayName": "Maximum quantity"
+                }
+              },
+              "frame": {
+                "title": "Max sales by product",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 6,
+            "width": 2,
+            "height": 3
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
