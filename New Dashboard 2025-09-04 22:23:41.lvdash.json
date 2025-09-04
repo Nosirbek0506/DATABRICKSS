@@ -1,0 +1,23 @@
+{
+  "datasets": [
+    {
+      "name": "412520c3",
+      "displayName": "fact_sales_2025",
+      "queryLines": [
+        "SELECT * FROM nosirbek.bronze.fact_sales_2025"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "db418dde",
+      "displayName": "Untitled page",
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
